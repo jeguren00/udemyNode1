@@ -1,0 +1,53 @@
+ForbiddenError: invalid csrf token
+    at csrf (/home/jordi/programas/bienesraices/node_modules/csurf/index.js:112:19)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:280:10)
+    at cookieParser (/home/jordi/programas/bienesraices/node_modules/cookie-parser/index.js:57:14)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+file:///home/jordi/programas/bienesraices/index.js:33
+app.use(csrf({ cookie: true }))
+    ^
+
+ReferenceError: csrf is not defined
+    at file:///home/jordi/programas/bienesraices/index.js:33:5
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+
+Node.js v18.19.0
+ForbiddenError: invalid csrf token
+    at csrf (/home/jordi/programas/bienesraices/node_modules/csurf/index.js:112:19)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:280:10)
+    at cookieParser (/home/jordi/programas/bienesraices/node_modules/cookie-parser/index.js:71:5)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+ForbiddenError: invalid csrf token
+    at csrf (/home/jordi/programas/bienesraices/node_modules/csurf/index.js:112:19)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:280:10)
+    at cookieParser (/home/jordi/programas/bienesraices/node_modules/cookie-parser/index.js:71:5)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:328:13)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:286:9
+TypeError: req.csrfToken is not a function
+    at renderRegView (file:///home/jordi/programas/bienesraices/controllers/loginController.js:11:73)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/jordi/programas/bienesraices/node_modules/express/lib/router/route.js:144:13)
+    at Route.dispatch (/home/jordi/programas/bienesraices/node_modules/express/lib/router/route.js:114:3)
+    at Layer.handle [as handle_request] (/home/jordi/programas/bienesraices/node_modules/express/lib/router/layer.js:95:5)
+    at /home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:284:15
+    at Function.process_params (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:346:12)
+    at next (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:280:10)
+    at Function.handle (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:175:3)
+    at router (/home/jordi/programas/bienesraices/node_modules/express/lib/router/index.js:47:12)
