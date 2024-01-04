@@ -1,7 +1,9 @@
 import express from 'express';
 import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
-import router from './routes/authRoutes.js';
+import authRouter from './routes/authRoutes.js';
+import propertiesRouter from './routes/propertiesRoutes.js';
+
 import db from './config/db.js'
 
 
@@ -41,4 +43,5 @@ app.use( express.urlencoded({extended:true}))
 app.use(express.static('public'))
 
 //routing
-app.use(`/auth`, router)
+app.use(`/auth`, authRouter)
+app.use(`/properties`, propertiesRouter)

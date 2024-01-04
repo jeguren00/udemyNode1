@@ -26,6 +26,33 @@ const emailRegister = async (datos) => {
     })
 }
 
+const forgotPassword = async (datos) => {
+    const transport = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASSWORD
+        }
+    });
+
+    const { email, name, token } = datos
+
+    //send the mail
+    await transport.sendMail({
+        from: 'bienesraices@Mail.com',
+        to: email,
+        subject: 'Forgoten password',
+        text: 'Forgoten password',
+        html:`
+            <p>Hi ${name}, seems you have forgoten your password, click on the link below to create a new one.</p>
+            <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/restPassword/${token}">PaswordUpdate</a></p>
+
+            <p>If you did not asked for this password change ignore the message</p>`
+    })
+}
+
 export {
-    emailRegister
+    emailRegister,
+    forgotPassword
 }
