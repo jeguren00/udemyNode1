@@ -8,23 +8,40 @@ block headerBlock
         h1.text-4xl.my10.font-extrabold.text-center Bienes
             span.font-normal Raices
         h2.text-center.text-2xl.font-extrabold=pagina
+
+        if errores 
+            div(class="max-w-md mx-auto my-10")
+                each error in errores
+                    p.bg-red-600.text-white.uppercase.text-xs.text-center.p-2.mb-1.font-bold= error.msg
+
+
         div(class="bg-white shadow py-8 px-4 rounded mx-auto max-w-4xl my-10")
-            form.space-y-8
+            form(method="POST" action="/properties/create").space-y-8
                 div.space-y-5
                 h3.text-lg.leading-6.font-medium.text-gray-900 General Information
                 p.text-gray-600 Add information about the property
+
                 div
                     label(for="title").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Title of the Announcment
-                    input#title.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Ex House on the beach" type="text" name="title")
+                    input#title.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Ex House on the beach" type="text" name="title" value= data.title ? data.title : '' )
+                div
+                    label(for="description").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Description
+                    textarea#description.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Description of the property" name="description")= data.description ? data.description : ''
+                    
                 div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
                     div(class="md:w-1/2")
                         label(for="category").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Category
                         select#category.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="category")
                             option(value="") -Select-
+                            each category in categories
+                                option(value=category.id selected=data.category ? data.category == category.id ? true: false: null )= category.name
+
                     div(class="md:w-1/2")
                         label(for="price").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Price
                         select#price.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="price")
                             option(value="") -Select-
+                            each price in prices
+                                option(value=price.id selected=data.price ? data.price == price.id ? true: false: null)= price.name
                 div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
                     div(class="md:w-1/2")
                         label(for="rooms").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Rooms
@@ -32,23 +49,35 @@ block headerBlock
                             option(value="") -Select-
                             - var n = 1
                                 while n < 6
-                                    option(value=n) #{n++}
+                                    option(value=n selected=data.rooms ? data.rooms == n ? true: false: null) #{n++}
                     div(class="md:w-1/2")
-                        label(for="parking").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Parking
-                        select#parking.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="parking")
+                        label(for="parkings").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Parkings
+                        select#parkings.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="parkings")
                             option(value="") -Select-
                             - var n = 1
                                 while n < 6
-                                    option(value=n) #{n++}
+                                    option(value=n selected=data.parkings ? data.parkings == n ? true: false: null) #{n++}
                     div(class="md:w-1/2")
                         label(for="bathrooms").block.text-sm.uppercase.text-gray-600.mb-2.font-bold Bathrooms
                         select#bathrooms.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="bathrooms")
                             option(value="") -Select-
                             - var n = 1
                                 while n < 6
-                                    option(value=n) #{n++}
-                
-                #mapa.h-96
+                                    option(value=n selected=data.bathrooms ? data.bathrooms == n ? true: false: null) #{n++}
+                div.border-gray-200.border-t.py-5
+                    h3.text-lg.leading-6.font-medium.text-gray-900 Location
+                    p.text-gray-600 Locate the property on the map
+                    #mapa.h-96
+
+                    div
+                        p.calle= data.street ? data.street : ''
+
+                    input(type="hidden" name="street" id="street" value=data.street ? data.street : '')
+                    input(type="hidden" name="lat" id="lat" value=data.lat ? data.lat : '')
+                    input(type="hidden" name="lng" id="lng" value=data.lng ? data.lng : '')
+                input(class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 rounded text-white font-bold uppercase cursor-pointer" type="submit" value="Add image")
+
+
 
                 
 
